@@ -1,37 +1,22 @@
 @echo off
-title User Info Script
+title Pay Calculator
 
-:: Ask for username
-set /p username=Please enter your username: 
-
-echo.
-echo ================================
-echo   Hello, %username%!
-echo   Here is some info about your computer:
-echo ================================
+echo ============================
+echo     Simple Pay Calculator
+echo ============================
 echo.
 
-:: Display computer name
-echo Computer Name: %COMPUTERNAME%
+:: Ask for input
+set /p hours=How many hours did you work? 
+set /p rate=How much do you get paid per hour? 
 
-:: Display current logged in Windows username
-echo Logged-in User: %USERNAME%
+:: Calculate pay (integer math only)
+set /a pay=hours * rate
 
-:: Display OS version
-ver
-
-:: Display current date and time
-echo Date: %DATE%
-echo Time: %TIME%
-
-:: Display processor info
 echo.
-echo Processor Info:
-wmic cpu get Name
-
-:: Display total RAM
-echo.
-echo Total RAM:
-wmic computersystem get TotalPhysicalMemory
+echo ============================
+echo You worked %hours% hours at %rate% per hour.
+echo Your total pay is: %pay%
+echo ============================
 
 pause
